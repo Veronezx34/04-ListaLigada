@@ -156,6 +156,9 @@ void inserirElemento()
 	// vazamento de memória.
 	// -----------------------------------------------------------------
 
+
+
+
 	// 2) ...e só depois alocamos memória para o novo nó
 	NO* novo = (NO*)malloc(sizeof(NO));
 	if (novo == NULL)
@@ -196,6 +199,19 @@ void excluirElemento()
 	// Lembre-se: todo nó removido precisa de free(), e um nó liberado
 	// nunca mais deve ser usado.
 	// -----------------------------------------------------------------
+	int numero;
+	cout << "Digite um numero: " << endl;
+	cin >> numero;
+	if (posicaoElemento(numero) == NULL) {
+		cout << "Elemento nao encontrado" << endl;
+		return;
+	}
+
+	//CASO A
+	int excluido;
+	primeiro = excluido;
+	primeiro = primeiro->prox;
+
 }
 
 void buscarElemento()
@@ -207,6 +223,16 @@ void buscarElemento()
 	// 3. Retorno diferente de NULL -> exiba "ENCONTRADO"
 	//    Retorno igual a NULL     -> exiba "ELEMENTO NAO ENCONTRADO"
 	// -----------------------------------------------------------------
+	int numero;
+	cout << "Digite o elemento a ser buscado: " << endl;
+	cin >> numero;
+	posicaoElemento(numero);
+	if (numero != NULL) {
+		cout << "Encontrado" << endl;
+		return;
+	}
+	cout << "Elemento nao encontrado" << endl;
+		
 }
 
 
