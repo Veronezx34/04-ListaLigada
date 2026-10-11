@@ -200,17 +200,38 @@ void excluirElemento()
 	// nunca mais deve ser usado.
 	// -----------------------------------------------------------------
 	int numero;
-	cout << "Digite um numero: " << endl;
+
+	// Recebe o número que será excluído
+	cout << "Qual numero desejas excluir: ";
 	cin >> numero;
+
+	// Verifica se o elemento existe
 	if (posicaoElemento(numero) == NULL) {
-		cout << "Elemento nao encontrado" << endl;
+		cout << "ELEMENTO NAO ENCONTRADO" << endl;
 		return;
 	}
 
-	//CASO A
-	int excluido;
-	primeiro = excluido;
-	primeiro = primeiro->prox;
+	if (numero == primeiro->valor) {
+		// Remove o primeiro nó
+		NO* aux = primeiro;
+		primeiro = primeiro->prox;
+		free(aux);
+	}
+	else {
+		NO* anterior = primeiro;
+		NO* aux = primeiro;
+
+		// Percorre a lista até encontrar o número
+		while (aux->valor != numero) {
+			anterior = aux;
+			aux = aux->prox;
+		}
+
+		// Desconecta e libera o nó
+		anterior->prox = aux->prox;
+		free(aux);
+	}
+
 
 }
 
